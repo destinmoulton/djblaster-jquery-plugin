@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>djblaster.jquery Example</title>
+
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<!-- The Feed List Container -->
+<div id="djblaster-feed-container">Animated loading gif here...</div>
+
+<!-- Do NOT include a second copy of jquery if alread included -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
+
+<!-- Required JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
+
+<!-- Change src to actual djblaster.jquery.js path on server-->
+<script src="djblaster.jquery.js"></script>
+
+<!-- Modifiable template -->
+<script type="html/tpl" id="djblaster-feed-template">
+<div>
+	<div>{{show_title}}</div>
+    <div>{{dj_name}}</div>
+    <div>{{show_start_time}} to {{show_end_time}}</div>
+    <br/>
+</div>
+</script>
+
+<script type="text/javascript">
+$(function(){
+    // djlbaster.jquery options
+    var options = {
+        debug: false,
+        feed_url: "<ADDRESS_OF_DJBLASTER_INSTALLATION>/feeds/dj-signins-json",
+        count: 10, 
+        ignore: ["Test", "Test show"], // The show names to ignore (comma separated, in quotes)
+        template: "#djblaster-feed-template"
+    }
+    $("#djblaster-feed-container").djblaster(options);
+});
+
+</script>
+</body>
+</html>
