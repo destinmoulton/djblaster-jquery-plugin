@@ -59,3 +59,7 @@ The javascript libraries are required:
 -   jQuery
 -   lodash
 -   moment.js
+
+### License
+
+MIT
